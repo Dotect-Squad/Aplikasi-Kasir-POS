@@ -17,7 +17,12 @@ Public Class FormBarang
 
 
     Sub tampilBarang()
-        
+        Call koneksi()
+        Da = New OdbcDataAdapter("SELECT * FROM barang JOIN kategori_barang ON barang.id_kategori = kategori_barang.id_kategori", Conn)
+        Ds = New DataSet
+        Da.Fill(Ds, "barang")
+        BunifuCustomDataGrid1.DataSource = Ds.Tables("barang")
+        BunifuCustomDataGrid1.ReadOnly = True
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs)
