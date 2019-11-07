@@ -67,7 +67,18 @@ Public Class FormBarang
     End Sub
 
     Private Sub BunifuFlatButton4_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton4.Click
-        
+        If idBarang.Text = "" Then
+            MsgBox("Pilih data yang akan dihapus !", vbInformation)
+        ElseIf MsgBox("Apakah Anda ingin menghapusnya ?", vbInformation + vbYesNo) = vbYes Then
+            Call koneksi()
+            Dim deleteData As String = "DELETE FROM barang WHERE id = '" & idBarang.Text & "'"
+            Cmd = New OdbcCommand(deleteData, Conn)
+            Cmd.ExecuteNonQuery()
+            MsgBox("Data berhasil dihapus")
+            idBarang.Text = ""
+            Call tampilBarang()
+        Else
+        End If
     End Sub
 
     Private Sub BunifuFlatButton2_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton2.Click
