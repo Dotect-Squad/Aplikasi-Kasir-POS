@@ -198,6 +198,36 @@ G:\Kuliah\Semester 5\Proyek 2\Project\Aplikasi-Penjualan\Aplikasi-Penjualan\obj\
 G:\Kuliah\Semester 5\Proyek 2\Project\Aplikasi-Penjualan\Aplikasi-Penjualan\obj\Debug\AplikasiPenjualan.TambahStok.resources
 G:\Kuliah\Semester 5\Proyek 2\Project\Aplikasi-Penjualan\Aplikasi-Penjualan\obj\Debug\AplikasiPenjualan.UpdateHarga.resources
 G:\Kuliah\Semester 5\Proyek 2\Project\Aplikasi-Penjualan\Aplikasi-Penjualan\obj\Debug\AplikasiPenjualan.vbproj.GenerateResource.Cache
+<<<<<<< HEAD
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\bin\Debug\AplikasiPenjualan.exe.config
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.exe
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.xml
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.pdb
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\bin\Debug\AplikasiPenjualan.exe
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\bin\Debug\AplikasiPenjualan.pdb
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\bin\Debug\AplikasiPenjualan.xml
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.vbprojResolveAssemblyReference.cache
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.B_FormLogin.resources
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.UpdateHargaBarang.resources
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.KoreksiBarang.resources
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.DetailBarang.resources
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.FormAddBarang.resources
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.FormBarang.resources
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.FormDashboard.resources
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.FormKategoriBarang.resources
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.FormLapPenjualanV1.resources
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.FormPenjualan.resources
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.FormSetupToko.resources
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.FormUserlist.resources
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.KoreksiStok.resources
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.ListBarang.resources
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.MainForm.resources
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.Resources.resources
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.SalesReport.resources
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.TambahStok.resources
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.UpdateHarga.resources
+D:\Kuliah\Semester 5\Proyek2\Process Proyek\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.vbproj.GenerateResource.Cache
+=======
 D:\Matkul Smt 5\Proyek 2\Project\Aplikasi-Kasir-POS\bin\Debug\AplikasiPenjualan.exe.config
 D:\Matkul Smt 5\Proyek 2\Project\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.exe
 D:\Matkul Smt 5\Proyek 2\Project\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.xml
@@ -226,3 +256,4 @@ D:\Matkul Smt 5\Proyek 2\Project\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.
 D:\Matkul Smt 5\Proyek 2\Project\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.TambahStok.resources
 D:\Matkul Smt 5\Proyek 2\Project\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.UpdateHarga.resources
 D:\Matkul Smt 5\Proyek 2\Project\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.vbproj.GenerateResource.Cache
+>>>>>>> e796769336340c7b6e18c31c4f9c421c5e14b16a
