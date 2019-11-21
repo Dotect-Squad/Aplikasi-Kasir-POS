@@ -72,7 +72,24 @@ Public Class FormUserlist
     End Sub
 
     Sub inputData()
-        
+        If input.Text = "Tambah" Then
+            input.Text = "Simpan"
+            'Button3.Text = "Batal"
+            Call isiData()
+            Call kodeOtomatis()
+        Else
+            If kodeAdmin.Text = "" Or username.Text = "" Or password.Text = "" Or levelAdmin.Text = "" Then
+                MsgBox("Silahkan isi data dengan lengkap !", vbInformation)
+            Else
+                Call koneksi()
+                Dim inputData As String = "INSERT INTO admin (id_admin,nama_admin,password_admin,level_admin) values ('" & kodeAdmin.Text & "', '" & username.Text & "', '" & password.Text & "', '" & levelAdmin.Text & "')"
+                Cmd = New OdbcCommand(inputData, Conn)
+                Cmd.ExecuteNonQuery()
+                'MsgBox("Data berhasil diinputkan")
+                Call kondisiAwal()
+            End If
+        End If
+
     End Sub
 
 
