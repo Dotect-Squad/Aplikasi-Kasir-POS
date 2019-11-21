@@ -161,7 +161,20 @@ Public Class FormAddBarang
     End Sub
 
     Sub updateData()
-        
+        If kodeBarang.Text = "" Or namaBarang.Text = "" Or satuan.Text = "" Or stok.Text = "" Or beli.Text = "" Or jual.Text = "" Or kategoriID.Text = "" Or keterangan.Text = "" Then
+            MsgBox("Silahkan isi data dengan lengkap !", vbInformation)
+        ElseIf Val(beli.Text) > Val(jual.Text) Then
+            MsgBox("Harga beli harus lebih kecil dari harga jual !", vbInformation)
+        Else
+            Call koneksi()
+            Dim updateData As String = "UPDATE barang SET id_barang = '" & kodeBarang.Text & "',nama_barang = '" & namaBarang.Text & "', harga_beli = '" & beli.Text & "', harga_jual = '" & jual.Text & "',stok = '" & stok.Text & "', satuan = '" & satuan.Text & "', keterangan = '" & keterangan.Text & "',id_kategori = '" & kategoriID.Text & "', tanggal_update = '" & tanggalUpdate.Text & "', nama_admin='" & MainForm.btnLogin.Text & "',ppn = '" & ppn.Text & "' WHERE id = '" & id.Text & "' "
+            Cmd = New OdbcCommand(updateData, Conn)
+            Cmd.ExecuteNonQuery()
+            Call FormBarang.tampilBarang()
+            Call kondisiAwal()
+            Call FormBarang.kondisiAwal()
+            switchPanel(FormBarang)
+        End If
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick

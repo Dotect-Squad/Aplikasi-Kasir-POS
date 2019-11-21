@@ -41,11 +41,27 @@ Public Class FormBarang
     End Sub
 
     Private Sub BunifuCustomDataGrid1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles BunifuCustomDataGrid1.CellDoubleClick
-        
+        Dim i As Integer
+        i = BunifuCustomDataGrid1.CurrentRow.Index
+
+        idBarang.Text = BunifuCustomDataGrid1.Item(0, i).Value
+        FormAddBarang.id.Text = BunifuCustomDataGrid1.Item(0, i).Value
+        FormAddBarang.kodeBarang.Text = BunifuCustomDataGrid1.Item(1, i).Value
+        FormAddBarang.namaBarang.Text = BunifuCustomDataGrid1.Item(2, i).Value
+        FormAddBarang.beli.Text = BunifuCustomDataGrid1.Item(3, i).Value
+        FormAddBarang.jual.Text = BunifuCustomDataGrid1.Item(4, i).Value
+        FormAddBarang.stok.Text = BunifuCustomDataGrid1.Item(5, i).Value
+        FormAddBarang.satuan.Text = BunifuCustomDataGrid1.Item(6, i).Value
+        FormAddBarang.keterangan.Text = BunifuCustomDataGrid1.Item(7, i).Value
+        FormAddBarang.kategoriID.Text = BunifuCustomDataGrid1.Item(8, i).Value
+        switchPanel(FormAddBarang)
     End Sub
 
     Private Sub BunifuCustomDataGrid1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles BunifuCustomDataGrid1.CellClick
-        
+        Dim i As Integer
+        i = BunifuCustomDataGrid1.CurrentRow.Index
+
+        idBarang.Text = BunifuCustomDataGrid1.Item(0, i).Value
     End Sub
 
     Private Sub search_OnTextChange(sender As Object, e As EventArgs) Handles search.OnTextChange
