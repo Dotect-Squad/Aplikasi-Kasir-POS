@@ -230,7 +230,6 @@ Partial Class FormAddBarang
         Me.kategoriID.Name = "kategoriID"
         Me.kategoriID.Size = New System.Drawing.Size(35, 26)
         Me.kategoriID.TabIndex = 11
-        Me.kategoriID.Visible = False
         '
         'BunifuElipse1
         '
