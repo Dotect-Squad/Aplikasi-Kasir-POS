@@ -34,7 +34,14 @@ Public Class FormUserlist
     End Sub
 
     Sub isiData()
-        
+        kodeAdmin.Enabled = False
+        username.Enabled = True
+        password.Enabled = True
+        levelAdmin.Enabled = True
+        levelAdmin.Text = ""
+        simpan.Enabled = False
+        batal.Enabled = True
+        BunifuCustomDataGrid1.Enabled = False
     End Sub
 
     Sub updateValidation()
