@@ -8,7 +8,29 @@ Public Class FormUserlist
     End Sub
 
     Sub kondisiAwal()
-        
+        kodeAdmin.Text = ""
+        username.Text = ""
+        password.Text = ""
+        levelAdmin.Text = ""
+        input.Text = "Tambah"
+
+        kodeAdmin.Enabled = False
+        username.Enabled = False
+        password.Enabled = False
+        levelAdmin.Enabled = False
+        simpan.Enabled = False
+        input.Enabled = True
+
+        simpan.Enabled = False
+        batal.Enabled = False
+
+        Call koneksi()
+        Da = New OdbcDataAdapter("SELECT * FROM admin", Conn)
+        Ds = New DataSet
+        Da.Fill(Ds, "admin")
+        BunifuCustomDataGrid1.DataSource = Ds.Tables("admin")
+        BunifuCustomDataGrid1.ReadOnly = True
+        BunifuCustomDataGrid1.Enabled = True
     End Sub
 
     Sub isiData()
