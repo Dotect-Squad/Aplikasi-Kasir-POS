@@ -57,7 +57,18 @@ Public Class FormUserlist
     End Sub
 
     Sub kodeOtomatis()
-        
+        Cmd = New OdbcCommand("select * from admin where id_admin in (select max(id_admin) from admin)", Conn)
+        Dim urutan As String
+        Dim hitung As Long
+        Rd = Cmd.ExecuteReader
+        Rd.Read()
+        If Not Rd.HasRows Then
+            urutan = "ADM" + "001"
+        Else
+            hitung = Microsoft.VisualBasic.Right(Rd.GetString(0), 3) + 1
+            urutan = "ADM" + Microsoft.VisualBasic.Right("000" & hitung, 3)
+        End If
+        kodeAdmin.Text = urutan
     End Sub
 
     Private Sub BunifuCustomDataGrid1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles BunifuCustomDataGrid1.CellClick
