@@ -45,7 +45,15 @@ Public Class FormUserlist
     End Sub
 
     Sub updateValidation()
-        
+        kodeAdmin.Enabled = False
+        username.Enabled = True
+        password.Enabled = True
+        levelAdmin.Enabled = True
+        levelAdmin.Text = ""
+        input.Enabled = False
+        simpan.Enabled = True
+        batal.Enabled = True
+        BunifuCustomDataGrid1.Enabled = True
     End Sub
 
     Sub kodeOtomatis()
