@@ -34,7 +34,23 @@ Public Class FormPenjualan
     End Sub
 
     Sub kodeOtomatis()
-        
+        Call koneksi()
+        Cmd = New OdbcCommand("select * from penjualan where id_penjualan in (select max(id_penjualan) from penjualan)", Conn)
+        Dim urutan As String
+        Dim hitung As Long
+        Rd = Cmd.ExecuteReader
+        Rd.Read()
+        If Not Rd.HasRows Then
+            urutan = "T" + Format(Now, "yyyyMMdd") + "001"
+        Else
+            If Microsoft.VisualBasic.Left(Rd.Item("id_penjualan"), 9) <> "T" + Format(Now, "yyyyMMdd") Then
+                urutan = "T" + Format(Now, "yyyyMMdd") + "001"
+            Else
+                hitung = Microsoft.VisualBasic.Right(Rd.GetString(0), 9) + 1
+                urutan = "T" + Format(Now, "yyyyMMdd") + Microsoft.VisualBasic.Right("000" & hitung, 3)
+            End If
+        End If
+        noTransaksi.Text = urutan
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
