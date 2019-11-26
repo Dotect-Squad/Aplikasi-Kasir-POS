@@ -59,7 +59,16 @@ Public Class FormPenjualan
     End Sub
 
     Sub penguranganStok()
-        
+        Call koneksi()
+        Cmd = New OdbcCommand("SELECT * FROM barang WHERE id_barang='" & kodeBarang.Text & "'", Conn)
+        Rd = Cmd.ExecuteReader
+        Rd.Read()
+        If Rd.Item("stok") = 0 Then
+            MsgBox("Stok tidak tersedia !", vbInformation)
+        Else
+            Cmd = New OdbcCommand("UPDATE barang SET stok = stok - '" & qty.Text & "' WHERE id_barang = '" & kodeBarang.Text & "'", Conn)
+            Cmd.ExecuteNonQuery()
+        End If
     End Sub
 
     Sub inputBarang()
@@ -120,7 +129,12 @@ Public Class FormPenjualan
     End Sub
 
     Sub loadDetail()
-        
+        Call koneksi()
+        Da = New OdbcDataAdapter("SELECT id_barang, nama_barang,harga_pokok,harga_satuan,SUM(qty) AS qty,SUM(subtotal) AS SubTotal,SUM(diskon) as diskon,SUM(netto) AS netto,SUM(total_pokok) AS total_pokok FROM detail_penjualan WHERE id_penjualan='" & noTransaksi.Text & "' GROUP BY id_barang", Conn)
+        Ds = New DataSet
+        Da.Fill(Ds, "detail")
+        BunifuCustomDataGrid1.DataSource = Ds.Tables("detail")
+        BunifuCustomDataGrid1.ReadOnly = True
     End Sub
 
     Private Sub BunifuFlatButton1_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton1.Click
