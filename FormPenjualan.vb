@@ -110,7 +110,13 @@ Public Class FormPenjualan
     End Sub
 
     Sub hitungKembalian()
-        
+        Dim kembalian As Integer
+        If bayar.Text = "" Then
+            kembali.Text = "0"
+        Else
+            kembalian = Val(bayar.Text) - Val(Total.Text)
+            kembali.Text = kembalian
+        End If
     End Sub
 
     Private Sub bayar_KeyPress(sender As Object, e As KeyPressEventArgs) Handles bayar.KeyPress
