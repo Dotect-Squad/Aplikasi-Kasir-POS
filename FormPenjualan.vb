@@ -13,11 +13,24 @@ Public Class FormPenjualan
     End Sub
 
     Private Sub FormPenjualan_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        
+        Call kondisiAwal()
+        Call loadDetail()
+        If Not BunifuCustomDataGrid1.Rows.Count = 0 Then
+            Call totalQty()
+            Call hitungSubTotal()
+        End If
     End Sub
 
     Sub kondisiAwal()
-        
+        Call kodeOtomatis()
+        txtIdAdmin.Text = MainForm.lblIdAdmin.Text
+        namaKasir.Text = MainForm.btnLogin.Text
+        kodeBarang.Text = ""
+        qty.Text = "1"
+        kembali.Text = ""
+        bayar.Text = ""
+        Total.Text = "0"
+        Diskon.Text = "0"
     End Sub
 
     Sub kodeOtomatis()
