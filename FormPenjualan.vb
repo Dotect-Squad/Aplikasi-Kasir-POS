@@ -102,7 +102,11 @@ Public Class FormPenjualan
     End Sub
 
     Sub hitungSubTotal()
-       
+        Dim count As Integer = 0
+        Call koneksi()
+        Cmd = New OdbcCommand("SELECT SUM(netto) FROM detail_penjualan WHERE id_penjualan='" & noTransaksi.Text & "'", Conn)
+        count = Cmd.ExecuteScalar
+        Total.Text = count
     End Sub
 
     Sub hitungKembalian()
