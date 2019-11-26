@@ -152,7 +152,25 @@ Public Class FormPenjualan
     End Sub
 
     Sub saveData()
-        
+        If (bayar.Text = "" Or Total.Text = "" Or kembali.Text = "") Then
+            MsgBox("Silahkan lakukan transaksi !", vbInformation)
+            kodeBarang.Focus()
+        ElseIf Val(kembali.Text) < 0 Then
+            MsgBox("Pembayaran kurang !", vbInformation)
+        Else
+            Call koneksi()
+            Cmd = New OdbcCommand("INSERT INTO penjualan (id_penjualan,tanggal,jam,item_jual,total_jual,total_dibayar,kembali,id_admin) VALUES ('" & noTransaksi.Text & "', '" & tanggal.Text & "','" & jam.Text & "','" & qtyTotal.Text & "','" & Total.Text & "','" & bayar.Text & "','" & kembali.Text & "','" & txtIdAdmin.Text & "')", Conn)
+            Cmd.ExecuteNonQuery()
+            MsgBox("Data berhasil di inputkan !", vbInformation)
+            Call kondisiAwal()
+            Call loadDetail()
+            If BunifuCustomDataGrid1.Rows.Count = 0 Then
+                qtyTotal.Text = "0"
+            Else
+                Call totalQty()
+            End If
+            kodeBarang.Focus()
+        End If
     End Sub
 
     Private Sub kodeBarang_KeyPress(sender As Object, e As KeyPressEventArgs) Handles kodeBarang.KeyPress
