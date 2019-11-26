@@ -135,7 +135,10 @@ Public Class FormPenjualan
     End Sub
 
     Sub totalQty()
-        
+        Call koneksi()
+        Cmd = New OdbcCommand("SELECT SUM(qty) FROM detail_penjualan WHERE id_penjualan='" & noTransaksi.Text & "'", Conn)
+        Dim count As Integer = Cmd.ExecuteScalar
+        qtyTotal.Text = count
     End Sub
 
     Sub loadDetail()
