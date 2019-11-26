@@ -151,7 +151,7 @@ Public Class FormPenjualan
     End Sub
 
     Private Sub BunifuFlatButton1_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton1.Click
-
+        Call saveData()
     End Sub
 
     Sub saveData()
@@ -225,7 +225,28 @@ Public Class FormPenjualan
     End Sub
 
     Private Sub BunifuCustomDataGrid1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles BunifuCustomDataGrid1.CellDoubleClick
-        
+        Dim i As Integer
+        Dim idBarang As String
+        Dim quantity As Integer
+        i = BunifuCustomDataGrid1.CurrentRow.Index
+
+        idBarang = BunifuCustomDataGrid1.Item(0, i).Value
+        quantity = BunifuCustomDataGrid1.Item(4, i).Value
+        If MsgBox("Apakah Anda ingin menghapusnya ?", vbInformation + vbYesNo) = vbYes Then
+            Call koneksi()
+            Cmd = New OdbcCommand("UPDATE barang set stok = stok + '" & quantity & "' WHERE id_barang = '" & idBarang & "'", Conn)
+            Cmd.ExecuteNonQuery()
+            Cmd = New OdbcCommand("DELETE FROM detail_penjualan WHERE id_penjualan = '" & noTransaksi.Text & "' AND id_barang='" & idBarang & "'", Conn)
+            Cmd.ExecuteNonQuery()
+            Call loadDetail()
+            If BunifuCustomDataGrid1.Rows.Count = 0 Then
+                Total.Text = "0"
+                qtyTotal.Text = "0"
+            Else
+                Call hitungSubTotal()
+                Call totalQty()
+            End If
+        End If
     End Sub
 
     Private Sub namaKasir_TextChanged(sender As Object, e As EventArgs) Handles namaKasir.TextChanged
