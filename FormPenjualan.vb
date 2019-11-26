@@ -63,7 +63,28 @@ Public Class FormPenjualan
     End Sub
 
     Sub inputBarang()
-        
+        Dim harga_pokok As Integer
+        Call koneksi()
+        Cmd = New OdbcCommand("SELECT * FROM barang WHERE id_barang='" & kodeBarang.Text & "'", Conn)
+        Rd = Cmd.ExecuteReader
+        Rd.Read()
+        If Not Rd.HasRows Then
+            MsgBox("Kode Barang tidak tersedia !", vbInformation)
+        ElseIf Rd.Item("stok") < 0 Or Rd.Item("stok") < qty.Text Then
+            MsgBox("Stok tidak tersedia !", vbInformation)
+        Else
+            Cmd = New OdbcCommand("UPDATE barang SET stok = stok - '" & qty.Text & "' WHERE id_barang = '" & kodeBarang.Text & "'", Conn)
+            Cmd.ExecuteNonQuery()
+            namaBarang.Text = Rd.Item("nama_barang")
+            hargaSatuan.Text = Rd.Item("harga_jual")
+            harga_pokok = Rd.Item("harga_beli")
+            Cmd = New OdbcCommand("INSERT INTO detail_penjualan (id_penjualan,id_barang,nama_barang,harga_pokok,harga_satuan,qty,subtotal,diskon,netto,total_pokok) VALUES ('" & noTransaksi.Text & "', '" & kodeBarang.Text & "','" & namaBarang.Text & "','" & harga_pokok & "','" & hargaSatuan.Text & "','" & qty.Text & "','" & Val(hargaSatuan.Text) * Val(qty.Text) & "','" & Diskon.Text & "','" & (Val(hargaSatuan.Text) * Val(qty.Text)) - Diskon.Text & "','" & Val(harga_pokok) * Val(qty.Text) & "')", Conn)
+            Cmd.ExecuteNonQuery()
+            Call loadDetail()
+            Call hitungSubTotal()
+            Call totalQty()
+            kodeBarang.Text = ""
+        End If
     End Sub
 
 
