@@ -2,7 +2,16 @@
 Public Class FormSetupToko
 
     Sub tampilData()
-        
+        Call koneksi()
+        Dim show As String = "SELECT * FROM setup_toko"
+        Cmd = New OdbcCommand(show, Conn)
+        Rd = Cmd.ExecuteReader
+        Rd.Read()
+        If Rd.HasRows Then
+            namaToko.Text = Rd.Item("nama_toko")
+            alamatToko.Text = Rd.Item("alamat_toko")
+            telepon.Text = Rd.Item("telepon")
+        End If
     End Sub
 
     Private Sub FormSetupToko_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Me.KeyPress
@@ -54,6 +63,15 @@ Public Class FormSetupToko
     End Sub
 
     Sub updateData()
-        
+        If namaToko.Text = "" Or alamatToko.Text = "" Or telepon.Text = "" Then
+            MsgBox("Silahkan isi identitas toko Anda !", vbInformation)
+        Else
+            Call koneksi()
+            Dim updateData As String = "UPDATE setup_toko SET nama_toko = '" & namaToko.Text & "', alamat_toko = '" & alamatToko.Text & "', telepon = '" & telepon.Text & "' WHERE id = '1'"
+            Cmd = New OdbcCommand(updateData, Conn)
+            Cmd.ExecuteNonQuery()
+            MsgBox("Data berhasil diubah !", vbInformation)
+            tampilData()
+        End If
     End Sub
 End Class
