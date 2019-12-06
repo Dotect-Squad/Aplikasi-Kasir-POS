@@ -4,7 +4,19 @@ Public Class KoreksiStok
     Dim kodeStok As String
 
     Private Sub BunifuCustomDataGrid1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles BunifuCustomDataGrid1.CellClick
-        
+        Dim i As Integer
+
+        i = BunifuCustomDataGrid1.CurrentRow.Index
+
+        kodeStok = BunifuCustomDataGrid1.Item(0, i).Value
+        'searchItem.Text = BunifuCustomDataGrid1.Item(0, i).Value
+        Call koneksi()
+        Da = New OdbcDataAdapter("SELECT nama_barang,stok_lama,stok_sekarang FROM koreksi_stok WHERE id='" & kodeStok & "'", Conn)
+        Ds = New DataSet
+        Da.Fill(Ds, "kr2")
+        BunifuCustomDataGrid2.DataSource = Ds.Tables("kr2")
+        BunifuCustomDataGrid2.ReadOnly = True
+        BunifuCustomDataGrid2.Enabled = True
     End Sub
 
     Private Sub KoreksiStok_Load(sender As Object, e As EventArgs) Handles MyBase.Load
