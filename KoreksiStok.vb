@@ -12,7 +12,13 @@ Public Class KoreksiStok
     End Sub
 
     Sub tampilData()
-        
+        Call koneksi()
+        Da = New OdbcDataAdapter("SELECT id,tanggal,jam,keterangan,admin FROM koreksi_stok GROUP BY id ORDER BY tanggal DESC", Conn)
+        Ds = New DataSet
+        Da.Fill(Ds, "kr")
+        BunifuCustomDataGrid1.DataSource = Ds.Tables("kr")
+        BunifuCustomDataGrid1.ReadOnly = True
+        BunifuCustomDataGrid1.Enabled = True
     End Sub
 
     Sub searchDataByID()
