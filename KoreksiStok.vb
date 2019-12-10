@@ -34,35 +34,11 @@ Public Class KoreksiStok
     End Sub
 
     Sub searchDataByID()
-        Call koneksi()
-        Dim searchData As String = "SELECT id,tanggal,jam,keterangan,admin FROM koreksi_stok WHERE id like '%" & searchItem.text & "%' GROUP BY id ORDER BY tanggal DESC"
-        Cmd = New OdbcCommand(searchData, Conn)
-        Rd = Cmd.ExecuteReader
-        Rd.Read()
-        If Rd.HasRows Then
-            Call koneksi()
-            Dim query As String = "SELECT id,tanggal,jam,keterangan,admin FROM koreksi_stok WHERE id like '%" & searchItem.text & "%'  GROUP BY id ORDER BY tanggal DESC"
-            Da = New OdbcDataAdapter(query, Conn)
-            Ds = New DataSet
-            Da.Fill(Ds)
-            BunifuCustomDataGrid1.DataSource = Ds.Tables(0)
-        End If
+        
     End Sub
 
     Sub searchDataByTanggal()
-        Call koneksi()
-        Dim searchData As String = "SELECT id,tanggal,jam,keterangan,admin FROM koreksi_stok WHERE tanggal like '%" & searchItem.text & "%' GROUP BY id ORDER BY tanggal DESC"
-        Cmd = New OdbcCommand(searchData, Conn)
-        Rd = Cmd.ExecuteReader
-        Rd.Read()
-        If Rd.HasRows Then
-            Call koneksi()
-            Dim query As String = "SELECT id,tanggal,jam,keterangan,admin FROM koreksi_stok WHERE tanggal like '%" & searchItem.text & "%'  GROUP BY id ORDER BY tanggal DESC"
-            Da = New OdbcDataAdapter(query, Conn)
-            Ds = New DataSet
-            Da.Fill(Ds)
-            BunifuCustomDataGrid1.DataSource = Ds.Tables(0)
-        End If
+       
     End Sub
 
     Sub searchDataByKeterangan()
@@ -74,7 +50,17 @@ Public Class KoreksiStok
     End Sub
 
     Sub hapusData()
-        
+        If kodeStok = "" Then
+            MsgBox("Pilih data yang akan dihapus !", vbInformation)
+        ElseIf MsgBox("Apakah Anda ingin menghapusnya ?", vbInformation + vbYesNo) = vbYes Then
+            Call koneksi()
+            Dim deleteData As String = "DELETE FROM koreksi_stok WHERE id = '" & kodeStok & "'"
+            Cmd = New OdbcCommand(deleteData, Conn)
+            Cmd.ExecuteNonQuery()
+            'MsgBox("Data berhasil dihapus")
+            Call tampilData()
+        Else
+        End If
     End Sub
 
     Private Sub BunifuFlatButton4_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton4.Click
