@@ -257,3 +257,7 @@ D:\Matkul Smt 5\Proyek 2\Project\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.
 D:\Matkul Smt 5\Proyek 2\Project\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.UpdateHarga.resources
 D:\Matkul Smt 5\Proyek 2\Project\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.vbproj.GenerateResource.Cache
 >>>>>>> e796769336340c7b6e18c31c4f9c421c5e14b16a
+E:\Semester-5\Proyek 2\Project\Aplikasi-Kasir-POS\bin\Debug\AplikasiPenjualan.exe.config
+E:\Semester-5\Proyek 2\Project\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.exe
+E:\Semester-5\Proyek 2\Project\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.xml
+E:\Semester-5\Proyek 2\Project\Aplikasi-Kasir-POS\obj\Debug\AplikasiPenjualan.pdb

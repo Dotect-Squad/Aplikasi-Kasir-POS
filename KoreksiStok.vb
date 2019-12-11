@@ -34,19 +34,65 @@ Public Class KoreksiStok
     End Sub
 
     Sub searchDataByID()
-        
+        Call koneksi()
+        Dim searchData As String = "SELECT id,tanggal,jam,keterangan,admin FROM koreksi_stok WHERE id like '%" & searchItem.text & "%' GROUP BY id ORDER BY tanggal DESC"
+        Cmd = New OdbcCommand(searchData, Conn)
+        Rd = Cmd.ExecuteReader
+        Rd.Read()
+        If Rd.HasRows Then
+            Call koneksi()
+            Dim query As String = "SELECT id,tanggal,jam,keterangan,admin FROM koreksi_stok WHERE id like '%" & searchItem.text & "%'  GROUP BY id ORDER BY tanggal DESC"
+            Da = New OdbcDataAdapter(query, Conn)
+            Ds = New DataSet
+            Da.Fill(Ds)
+            BunifuCustomDataGrid1.DataSource = Ds.Tables(0)
+        End If
     End Sub
 
     Sub searchDataByTanggal()
+<<<<<<< HEAD
        
+=======
+        Call koneksi()
+        Dim searchData As String = "SELECT id,tanggal,jam,keterangan,admin FROM koreksi_stok WHERE tanggal like '%" & searchItem.text & "%' GROUP BY id ORDER BY tanggal DESC"
+        Cmd = New OdbcCommand(searchData, Conn)
+        Rd = Cmd.ExecuteReader
+        Rd.Read()
+        If Rd.HasRows Then
+            Call koneksi()
+            Dim query As String = "SELECT id,tanggal,jam,keterangan,admin FROM koreksi_stok WHERE tanggal like '%" & searchItem.text & "%'  GROUP BY id ORDER BY tanggal DESC"
+            Da = New OdbcDataAdapter(query, Conn)
+            Ds = New DataSet
+            Da.Fill(Ds)
+            BunifuCustomDataGrid1.DataSource = Ds.Tables(0)
+        End If
+>>>>>>> de8b2a07c7b2a2f62ab7b95d52eb1e71627f89b3
     End Sub
 
     Sub searchDataByKeterangan()
-        
+        Call koneksi()
+        Dim searchData As String = "SELECT id,tanggal,jam,keterangan,admin FROM koreksi_stok WHERE keterangan like '%" & searchItem.text & "%' GROUP BY id ORDER BY tanggal DESC"
+        Cmd = New OdbcCommand(searchData, Conn)
+        Rd = Cmd.ExecuteReader
+        Rd.Read()
+        If Rd.HasRows Then
+            Call koneksi()
+            Dim query As String = "SELECT id,tanggal,jam,keterangan,admin FROM koreksi_stok WHERE keterangan like '%" & searchItem.text & "%'  GROUP BY id ORDER BY tanggal DESC"
+            Da = New OdbcDataAdapter(query, Conn)
+            Ds = New DataSet
+            Da.Fill(Ds)
+            BunifuCustomDataGrid1.DataSource = Ds.Tables(0)
+        End If
     End Sub
 
     Private Sub search_OnTextChange(sender As Object, e As EventArgs) Handles searchItem.OnTextChange
-        
+        If R_ID.Checked = True Then
+            Call searchDataByID()
+        ElseIf R_Tanggal.Checked = True Then
+            Call searchDataByTanggal()
+        Else
+            Call searchDataByKeterangan()
+        End If
     End Sub
 
     Sub hapusData()
