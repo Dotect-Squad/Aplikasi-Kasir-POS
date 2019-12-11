@@ -23,7 +23,10 @@ Public Class FormDashboard
     End Sub
 
     Sub totalSales()
-        
+        Call koneksi()
+        Cmd = New OdbcCommand("SELECT COUNT(*) FROM detail_penjualan", Conn)
+        Dim count As Integer = Cmd.ExecuteScalar
+        lblSales.Text = count
     End Sub
 
     Sub totalIncome()
