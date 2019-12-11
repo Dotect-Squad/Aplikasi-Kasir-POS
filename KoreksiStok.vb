@@ -50,6 +50,9 @@ Public Class KoreksiStok
     End Sub
 
     Sub searchDataByTanggal()
+<<<<<<< HEAD
+       
+=======
         Call koneksi()
         Dim searchData As String = "SELECT id,tanggal,jam,keterangan,admin FROM koreksi_stok WHERE tanggal like '%" & searchItem.text & "%' GROUP BY id ORDER BY tanggal DESC"
         Cmd = New OdbcCommand(searchData, Conn)
@@ -63,6 +66,7 @@ Public Class KoreksiStok
             Da.Fill(Ds)
             BunifuCustomDataGrid1.DataSource = Ds.Tables(0)
         End If
+>>>>>>> de8b2a07c7b2a2f62ab7b95d52eb1e71627f89b3
     End Sub
 
     Sub searchDataByKeterangan()
@@ -114,6 +118,10 @@ Public Class KoreksiStok
     End Sub
 
     Private Sub BunifuCustomDataGrid1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles BunifuCustomDataGrid1.CellDoubleClick
+
+    End Sub
+
+    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
 
     End Sub
 End Class

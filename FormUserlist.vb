@@ -142,7 +142,17 @@ Public Class FormUserlist
 
 
     Private Sub hapus_Click(sender As Object, e As EventArgs) Handles hapus.Click
-        
+        If kodeAdmin.Text = "" Then
+            MsgBox("Pilih data yang akan dihapus !", vbInformation)
+        ElseIf MsgBox("Apakah Anda ingin menghapusnya ?", vbInformation + vbYesNo) = vbYes Then
+            Call koneksi()
+            Dim deleteData As String = "DELETE FROM admin WHERE id_admin = '" & kodeAdmin.Text & "'"
+            Cmd = New OdbcCommand(deleteData, Conn)
+            Cmd.ExecuteNonQuery()
+            'MsgBox("Data berhasil dihapus")
+            Call kondisiAwal()
+        Else
+        End If
     End Sub
 
     Private Sub simpan_Click(sender As Object, e As EventArgs) Handles simpan.Click
@@ -172,4 +182,7 @@ Public Class FormUserlist
         End If
     End Sub
 
+    Private Sub BunifuCustomDataGrid1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles BunifuCustomDataGrid1.CellContentClick
+
+    End Sub
 End Class
